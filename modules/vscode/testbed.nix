@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 # We are using VSCodium because VSCode is an unfree package
 let
   package = pkgs.vscodium;
-
 in
 {
   stylix.testbed.application = {
@@ -12,12 +11,10 @@ in
     inherit package;
   };
 
-  home-manager.sharedModules = [
-    {
-      programs.vscode = {
-        enable = true;
-        inherit package;
-      };
-    }
-  ];
+  home-manager.sharedModules = lib.singleton {
+    programs.vscode = {
+      enable = true;
+      inherit package;
+    };
+  };
 }

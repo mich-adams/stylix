@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   package = pkgs.kitty;
-
 in
 {
   stylix.testbed.application = {
@@ -11,12 +10,10 @@ in
     inherit package;
   };
 
-  home-manager.sharedModules = [
-    {
-      programs.kitty = {
-        enable = true;
-        inherit package;
-      };
-    }
-  ];
+  home-manager.sharedModules = lib.singleton {
+    programs.kitty = {
+      enable = true;
+      inherit package;
+    };
+  };
 }

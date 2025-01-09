@@ -8,6 +8,8 @@ inputs: {
       tinted-foot
       tinted-kitty
       tinted-tmux
+      tinted-zed
+      firefox-gnome-theme
       ;
   };
 }

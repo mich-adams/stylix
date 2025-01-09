@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 let
-  package = pkgs.chromium;
+  package = pkgs.gnome-text-editor;
 in
 {
   stylix.testbed.application = {
     enable = true;
-    name = "chromium-browser";
+    name = "org.gnome.TextEditor";
     inherit package;
   };
 
